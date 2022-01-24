@@ -5,6 +5,9 @@
 :root {
     --p-container: 16px;
     --mw-document: 100%;
+    --color-white: #ffffff;
+    --color-primary: #206bc4;
+    --primary-active: #1c5fae;
 }
 
 @font-face {
@@ -40,6 +43,7 @@ html {
 body {
     margin: 0;
     font-family: 'Outfit Light', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #181717;
     line-height: 1.5;
     scroll-behavior: smooth;
 }
@@ -50,38 +54,53 @@ body {
     padding: 0 var(--p-container);
 }
 
-@media screen and (min-width: 768px) {
-    :root {
-        --mw-document: 1200px;
-    }
-}
-
-.navbar ul {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 .header {
-    background-color: #1d69d4;
+    padding: 20px 0;
+    background-color: var(--color-primary);
+}
+
+.header a {
+    color: var(--color-white);
 }
 
 .logo {
-    display: none;
+    font-size: 18px;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hamburger-menu {
+    cursor: pointer;
+}
+
+.hamburger-menu:active {
+    transform: scale(.8);
 }
 
 .navbar {
     width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: #1d69d4;
+    display: flex;
+    justify-content: center;
 }
 
-.header a {
-    color: #fffeff;
+.navbar ul {
+    display: none;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navbar li {
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.navbar ul.show {
+    display: block
 }
 
 /* Section Hero */
@@ -90,8 +109,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 16px;
-    padding-bottom: 16px;
 }
 
 .hero-img {
@@ -103,34 +120,28 @@ body {
     text-align: center;
 }
 
+.btn {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-radius: 5px;
+}
+
+.btn:active {
+    background-color: var(--primary-active)
+}
+
 .social-links {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.social-links a {
-    width: 32px;
-    height: 32px;
-    margin-right: 16px;
-}
-
-.social-links a:nth-child(1) svg {
-    fill: #181717;
-}
-
-.social-links a:nth-child(2) svg {
-    fill: #0A66C2;
-}
-
-.social-links a:nth-child(3) svg {
-    fill: #1DA1F2;
+.social-links .btn {
+    padding: 5px 5px 0;
+    margin-right: 5px;
 }
 
 /* Section Projects */
-.projects {
-    padding-top: 15px;
-}
-
 .title-section {
     text-align: center;
 }
@@ -145,7 +156,7 @@ body {
 .project {
     display: flex;
     flex-direction: column;
-    border: 1px solid #1DA1F2;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 10px;
 }
 
@@ -153,6 +164,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    grid-gap: 10px;
     justify-content: space-between;
     padding: 16px;
 }
@@ -169,29 +181,81 @@ body {
     margin: 0;
 }
 
-.cta {
+.project-footer .btn, .more-projects .btn, .form .btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
     padding: 6px 12px;
-    color: #000;
-    border: 1px solid #1d69d4;
-    border-radius: 26px;
 }
 
-.cta:hover {
-    background-color: #1d69d4;
-    color: #fffeff;
-}
-
-.cta svg {
-    width: 16px;
-}
-
-.cta:hover svg {
-    fill: #fffeff;
+.project-footer .btn {
+    margin-right: 5px;
 }
 
 .more-projects {
     text-align: center;
+}
+
+/* Section contact */
+.contact {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input, .form textarea {
+    padding: 10px;
+    margin-bottom: 5px;
+    font-family: 'Outfit';
+    font-size: 16px;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    outline: none;
+}
+
+.form input:focus, .form textarea:focus {
+    box-shadow: var(--primary-active) 0 0 4px;
+}
+
+.form .btn {
+    margin: auto;
+    font-family: 'Outfit';
+    font-size: 16px;
+    border: none;
+}
+
+.hero, .projects, .contact {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --mw-document: 1080px;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .navbar ul {
+        display: flex;
+        margin: 0;
+    }
+
+    .navbar li {
+        margin-bottom: 0;
+        margin-left: 20px;
+    }
+
+    .header-inner {
+        flex-wrap: nowrap;
+    }
+
+    .navbar {
+        width: fit-content;
+    }
 }
