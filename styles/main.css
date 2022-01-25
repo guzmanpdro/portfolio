@@ -7,7 +7,7 @@
     --mw-document: 100%;
     --color-white: #ffffff;
     --color-primary: #206bc4;
-    --primary-active: #1c5fae;
+    --primary-hover: #1B5CAB;
 }
 
 @font-face {
@@ -61,6 +61,10 @@ body {
 
 .header a {
     color: var(--color-white);
+}
+
+.header a:hover {
+    color: #e6e6e6;
 }
 
 .logo {
@@ -126,8 +130,8 @@ body {
     border-radius: 5px;
 }
 
-.btn:active {
-    background-color: var(--primary-active)
+.btn:hover {
+    background-color: var(--primary-hover)
 }
 
 .social-links {
@@ -192,10 +196,6 @@ body {
     margin-right: 5px;
 }
 
-.more-projects {
-    text-align: center;
-}
-
 /* Section contact */
 .contact {
     text-align: center;
@@ -208,16 +208,16 @@ body {
 
 .form input, .form textarea {
     padding: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 16px;
     font-family: 'Outfit';
     font-size: 16px;
-    border: 2px solid var(--color-primary);
+    border: 2px solid rgba(0, 0, 0, .16);
     border-radius: 5px;
     outline: none;
 }
 
 .form input:focus, .form textarea:focus {
-    box-shadow: var(--primary-active) 0 0 4px;
+    border: 2px solid var(--primary-hover);
 }
 
 .form .btn {
@@ -225,6 +225,7 @@ body {
     font-family: 'Outfit';
     font-size: 16px;
     border: none;
+    cursor: pointer;
 }
 
 .hero, .projects, .contact {
@@ -257,5 +258,11 @@ body {
 
     .navbar {
         width: fit-content;
+    }
+
+    .form-container {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
