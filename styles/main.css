@@ -110,10 +110,8 @@ body {
 
 /* Section Hero */
 .hero {
-  height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
 .hero-img {
@@ -244,6 +242,12 @@ body {
 @media screen and (min-width: 768px) {
   :root {
     --mw-document: 1080px;
+  }
+
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .hamburger-menu {
