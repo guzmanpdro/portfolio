@@ -48,6 +48,10 @@ body {
   scroll-behavior: smooth;
 }
 
+main {
+  background-color: #fafafa;
+}
+
 .container {
   max-width: var(--mw-document);
   margin: 0 auto;
